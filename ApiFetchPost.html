@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+      body {
+            background-color: ghostwhite;
+        }
+    .maincontainer{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        padding-top: 1rem;
+    }
+    button{
+       width: 15%; 
+       height: 10%;
+       margin-right: 2rem;
+    }
+    .container1{
+        display: flex;
+        flex-direction: column;
+ width: 85%;
+    justify-content: center;
+    align-items: center;
+    }
+    #grid {
+
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+    .innerdiv{
+        width: 30%;
+        text-align: center;
+        padding:10px;
+        margin: 7px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; ;
+    }
+    h5{
+        color:#424242 ;
+    }
+
+</style>
+
+<body onload="fetchapiFunction()">
+    <div class="maincontainer">
+       
+    <button id='button' class="btn-info px-2 py-1 ml-3 mt-3 rounded  font-weight-bold text-uppercase text-white " onclick="back()">BACK TO MAIN PAGE</button>
+    <div class="container1">
+        <h1>Display the title and body from API</h1>
+    <div id='grid'></div>
+</div>
+</div>
+</body>
+<script>
+    function fetchapiFunction() {
+        var container = document.getElementById("grid");
+        let URL = 'https://jsonplaceholder.typicode.com/posts'
+        fetch(URL).then((res) => {
+            return res.json()
+        }).then((data) => {
+            console.log(data)
+            data.map((each) => {
+                var div = document.createElement("div");
+                div.className='innerdiv'
+                var h2 = document.createElement("h4");
+                var h4 = document.createElement("h5");
+                h2.innerHTML = `${each.title}`;
+                h4.innerHTML = each.body;
+                div.appendChild(h2);
+                div.appendChild(h4);
+                container.appendChild(div);
+            })
+        }).catch((err) => { console.log("Error : " + err); })
+    }
+   
+    function back(){
+        window. location. href = "index.html" 
+    }
+
+</script>
+
+</html>

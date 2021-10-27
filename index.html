@@ -70,15 +70,18 @@
                 <div class="w-75">
                    <h4 class=" text-center">TODO LIST</h4>
                     <input id="myInput" type="text" class="form-control" placeholder="Enter your name here">
-                    <button type="button" class="btn btn-primary mt-3 mb-4  " onclick="addtotodolist()">ADD TO TODO</button>
+                    <button type="button" class="btn btn-primary mt-3 mb-4" data-toggle="tooltip" data-placement="bottom" title="add data in list" onclick="addtotodolist()">ADD TO TODO</button>
                     <ul id="mylist">
                     </ul>
                 </div>
            
             </div>
-            <div class="w-25 " >
-                <button  class="btn-primary p-2 rounded shadow text-white font-weight-bold" onclick="Open_registrationpage()">REGISTRATION PAGE</button>
+            <div class="w-25 d-flex flex-column" >
+                <button  class="btn-primary p-2 rounded shadow text-white font-weight-bold w-75" data-toggle="tooltip" data-placement="bottom" title="open registration page"
+                onclick="Open_registrationpage()">REGISTRATION PAGE</button>
+                <button  class="btn btn-primary p-2 rounded shadow text-white font-weight-bold mt-4 w-75" data-toggle="tooltip" data-placement="bottom" title="open fetch api page" onclick="Open_apifetchpost()">Fetch API POST</button>
             </div>
+            
         </div>
     </div>
 </body>
@@ -154,6 +157,11 @@
     function Open_registrationpage()
     {
         window. location. href = "Registrationpage.html" 
+    }
+        //  ------  api fetch page -----------
+        function Open_apifetchpost()
+    {
+        window. location. href = "ApiFetchPost.html" 
     }
     </script>
 
